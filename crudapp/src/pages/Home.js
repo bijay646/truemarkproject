@@ -17,14 +17,13 @@ const Home = () => {
         }
         else {
           setproducts(data.products)
-          console.log(data.products)
         }
       })
       .catch(err => console.log(err))
   }, [])
 
   useEffect(() => {
-    setfilteredProducts(products.filter(item => 
+    setfilteredProducts(products.filter(item =>
       item.product_name.toUpperCase().match(search.toUpperCase()) || item.category_name.toUpperCase().match(search.toUpperCase())))
   }, [search])
 
@@ -32,14 +31,14 @@ const Home = () => {
   return (
     <>
       <div className='p-5 text-start'>
-        <div className='container'>
+        <div className='container w-75'>
           <div>
             <h3 className='text-success'>
               CRUD Operation
             </h3>
             <div className='row d-flex'>
               <div className='col-6'>
-                <Link to='/admin/product/add' className='btn btn-primary'>Add Product</Link>
+                <Link to='/product/add' className='btn btn-primary'>Add Product</Link>
               </div>
               <div className='col-6'>
                 <form className="d-flex" role="search">
@@ -49,7 +48,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <table className='table text-center table-hover mt-5' style={{ fontSize: '18px' }} >
+          <table className='table text-center table-hover mt-5 shadow-sm ' style={{ fontSize: '18px' }} >
             <thead >
               <tr style={{ borderBottom: "3px solid grey" }}>
                 <th>Name</th>
@@ -71,8 +70,8 @@ const Home = () => {
                     <td><h4>{product.status}</h4></td>
                     <td>
                       <div className='btn-group'>
-                        <Link to={`/admin/product/update/${product.id}`} className='btn btn-warning'><i className='bi bi-pencil' /></Link>
-                        <Link to={`/admin/product/delete/${product.id}`} className='btn btn-danger'><i className='bi bi-trash' /></Link>
+                        <Link to={`/product/update/${product.id}`} className='btn btn-warning'><i className='bi bi-pencil' /></Link>
+                        <Link to={`/product/delete/${product.id}`} className='btn btn-danger'><i className='bi bi-trash' /></Link>
                       </div>
                     </td>
 
@@ -87,8 +86,8 @@ const Home = () => {
                     <td><h4>{product.status}</h4></td>
                     <td>
                       <div className='btn-group'>
-                        <Link to={`/admin/product/update/${product.id}`} className='btn btn-warning'><i className='bi bi-pencil' /></Link>
-                        <Link to={`/admin/product/delete/${product.id}`} className='btn btn-danger'><i className='bi bi-trash' /></Link>
+                        <Link to={`/product/update/${product.id}`} className='btn btn-warning'><i className='bi bi-pencil' /></Link>
+                        <Link to={`/product/delete/${product.id}`} className='btn btn-danger'><i className='bi bi-trash' /></Link>
                       </div>
                     </td>
 
