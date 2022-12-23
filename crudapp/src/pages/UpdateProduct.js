@@ -56,26 +56,26 @@ const UpdateProduct = () => {
   }
   return (
     <>
-      <div className='col-8 p-5 text-start mx-auto'>
-        <div className='d-flex justify-content-between w-75 mb-5 mx-auto'>
+      <div className='col-lg-8 col-md-9 col-sm-11 col-11 py-5 px-2 text-start mx-auto'>
+        <div className='d-flex justify-content-between mb-5'>
           <h3>
             Update Product
           </h3>
           <Link to='/' className='btn btn-primary'>GO BACK</Link>
         </div>
-        <div className='container d-flex shadow-sm'>
-          <div className='p-5 my-5 border-end border-3 text-center'>
-            <h2 className='text-center text-decoration-underline'>Product Details</h2>
+        <div className='container row rounded-2 shadow' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
+          <div className='col-lg-6 col-md-6 col-sm-12 col-12 my-5  text-center bordercss'>
+            <h5 className='text-center text-decoration-underline'>Product Details</h5>
             <hr className='my-3'></hr>
-            <h3>Product Name: <u>{product_name}</u></h3>
-            <h3>Category: <u>{category_name}</u></h3>
-            <h3>Status: <u>{status}</u></h3>
-            <h3>Created By: <u>{created_by}</u></h3>
-            <h3>Description:{description}</h3>
+            <p>Product Name: <u>{product_name}</u></p>
+            <p>Category: <u>{category_name}</u></p>
+            <p>Status: <u>{status}</u></p>
+            <p>Created By: <u>{created_by}</u></p>
+            <p>Description:{description}</p>
 
           </div>
-          <form className='w-75 mx-auto p-5 my-5'>
-            <h2 className='text-decoration-underline mb-3'>Update Information</h2>
+          <form className='col-lg-6 col-md-6 col-sm-12 col-12 my-5 text-center'>
+            <h5 className='text-decoration-underline mb-3'>Update Product</h5>
             <hr className='my-3'></hr>
             <label htmlFor='pname'>Product Name</label>
             <input type={'text'} id='pname' className='form-control mb-3' onChange={handleChange('product_name')} value={product_name} />
@@ -86,7 +86,7 @@ const UpdateProduct = () => {
             
             <label htmlFor='stat'>Status</label>
             <select className='form-control mb-2' id='stat' onChange={handleChange('status')}>
-              <option value={status} selected>{status}</option>
+              <option defaultValue={status}>{status}</option>
               {
                 statusname.map((status, i) => {
                   return <option key={i} value={status}>{status}</option>

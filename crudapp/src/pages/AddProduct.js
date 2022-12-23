@@ -55,15 +55,15 @@ const AddProduct = () => {
   }
   return (
     <>
-      <div className='col-8 p-5 mt-3 text-start mx-auto'>
-        <div className='d-flex justify-content-between w-75 mx-auto'>
+      <div className='container col-lg-8 col-md-9 col-sm-12 col-12 p-4 mt-3 text-start mx-auto '>
+        <div className='d-flex justify-content-between'>
           <h3>
             Add Product
           </h3>
           <Link to='/' className='btn btn-primary'>Go Back</Link>
         </div>
 
-        <form className='p-5 shadow-sm mt-4 w-75 mx-auto'>
+        <form className='p-5 rounded-2 shadow mt-4' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
           <label htmlFor='product_name'>Product Name</label>
           <input type={'text'} className='form-control mb-2' id='product_name' onChange={handleChange('product_name')} value={product_name} />
 
