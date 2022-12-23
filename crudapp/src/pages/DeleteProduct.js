@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteProduct, getProductDetails } from '../api/productAPI';
 
+
 const DeleteProduct = () => {
   const [product, setProduct] = useState({})
   const { id } = useParams()
   const navigate = useNavigate()
+
   useEffect(() => {
     getProductDetails(id)
       .then(data => {
@@ -23,8 +25,7 @@ const DeleteProduct = () => {
     e.preventDefault()
     deleteProduct(id)
       .then(data => {
-          console.log(data)
-          navigate('/')
+        navigate('/')
       })
   }
   return (
@@ -36,7 +37,7 @@ const DeleteProduct = () => {
           </h3>
           <Link to='/' className='btn btn-primary'>GO BACK</Link>
         </div>
-        <div className='container row rounded-2 shadow' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
+        <div className='container row rounded-2 shadow' style={{ backgroundColor: 'hsl(0, 0%, 59%)' }}>
           <div className='col-lg-6 col-md-6 col-sm-12 col-12 my-5 text-center bordercss'>
             <h5 className='text-center text-decoration-underline'>Product Details</h5>
             <hr className='my-3'></hr>

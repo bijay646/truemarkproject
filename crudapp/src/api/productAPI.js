@@ -1,6 +1,8 @@
+import { API } from "../config"
+
 //get all products
 export const getProducts = () => {
-     return fetch("https://product-fhqo.onrender.com/products",{
+     return fetch(`${API}`,{
          method: "GET"
      })
      .then(res=>res.json())
@@ -9,7 +11,7 @@ export const getProducts = () => {
 
 //add product
  export const addProduct = (product) =>{
-    return fetch ("https://product-fhqo.onrender.com/products/",{
+    return fetch (`${API}`,{
         method: "POST",
         headers:{
             Accept: "application/json",
@@ -24,7 +26,7 @@ export const getProducts = () => {
 
  //get product details
  export const getProductDetails = (id) => {
-    return fetch(`https://product-fhqo.onrender.com/products/${id}`,{
+    return fetch(`${API}/${id}`,{
         method: "GET"
     })
     .then(res=>res.json())
@@ -34,7 +36,7 @@ export const getProducts = () => {
 
  //delete product
  export const deleteProduct = (id) => {
-    return fetch(`https://product-fhqo.onrender.com/products/${id}`,{
+    return fetch(`${API}/${id}`,{
         method: "DELETE"
     })
     .then(res=>res.json())
@@ -44,7 +46,7 @@ export const getProducts = () => {
 
 // to update product
 export const updateProduct = (id, product) => {
-    return fetch(`https://product-fhqo.onrender.com/products/${id}`,{
+    return fetch(`${API}/${id}`,{
         method:"PUT",
         headers:{
             Accept: "application/json",

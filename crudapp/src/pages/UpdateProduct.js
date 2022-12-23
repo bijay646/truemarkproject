@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { updateProduct, getProductDetails, getProducts } from '../api/productAPI';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const UpdateProduct = () => {
   const [statusname, setStatusname] = useState([])
@@ -13,7 +16,6 @@ const UpdateProduct = () => {
   })
   const { product_name, category_name, description, created_by, status, } = product
   const { id } = useParams()
-  const navigate = useNavigate()
 
   useEffect(() => {
     getProductDetails(id)
@@ -48,14 +50,15 @@ const UpdateProduct = () => {
 
   const handleUpdateChange = e => {
     e.preventDefault()
-    updateProduct(id,product)
+    updateProduct(id, product)
       .then(data => {
         console.log(data)
-        navigate('/')
+        toast.success("Product updated.")
       })
   }
   return (
     <>
+      <ToastContainer position='top-right' autoClose={1000} />
       <div className='col-lg-8 col-md-9 col-sm-11 col-11 py-5 px-2 text-start mx-auto'>
         <div className='d-flex justify-content-between mb-5'>
           <h3>
@@ -63,7 +66,7 @@ const UpdateProduct = () => {
           </h3>
           <Link to='/' className='btn btn-primary'>GO BACK</Link>
         </div>
-        <div className='container row rounded-2 shadow' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
+        <div className='container row rounded-2 shadow' style={{ backgroundColor: 'hsl(0, 0%, 59%)' }}>
           <div className='col-lg-6 col-md-6 col-sm-12 col-12 my-5  text-center bordercss'>
             <h5 className='text-center text-decoration-underline'>Product Details</h5>
             <hr className='my-3'></hr>
@@ -81,9 +84,9 @@ const UpdateProduct = () => {
             <input type={'text'} id='pname' className='form-control mb-3' onChange={handleChange('product_name')} value={product_name} />
 
             <label htmlFor='category'>Category</label>
-            <input type={'text'} id='category' value={category_name} className='form-control mb-3' readOnly/>
+            <input type={'text'} id='category' value={category_name} className='form-control mb-3' readOnly />
 
-            
+
             <label htmlFor='stat'>Status</label>
             <select className='form-control mb-2' id='stat' onChange={handleChange('status')}>
               <option defaultValue={status}>{status}</option>

@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { addProduct, getProducts } from '../api/productAPI'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const AddProduct = () => {
   const [categories, setCategories] = useState([])
   const [statusname, setStatusname] = useState([])
-  const navigate = useNavigate()
   const [product, setProduct] = useState({
     product_name: '',
     category_name: '',
@@ -48,7 +49,7 @@ const AddProduct = () => {
           setProduct({ ...product, product_name: '', description: '', created_by: '' })
           ref1.current.value = ''
           ref2.current.value = ''
-          navigate('/')
+          toast.success("Product Added.")
 
         }
       })
@@ -56,6 +57,7 @@ const AddProduct = () => {
   return (
     <>
       <div className='container col-lg-8 col-md-9 col-sm-12 col-12 p-4 mt-3 text-start mx-auto '>
+        <ToastContainer position='top-right' autoClose={1000} />
         <div className='d-flex justify-content-between'>
           <h3>
             Add Product
@@ -63,7 +65,7 @@ const AddProduct = () => {
           <Link to='/' className='btn btn-primary'>Go Back</Link>
         </div>
 
-        <form className='p-5 rounded-2 shadow mt-4' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
+        <form className='p-5 rounded-2 shadow mt-4' style={{ backgroundColor: 'hsl(0, 0%, 59%)' }}>
           <label htmlFor='product_name'>Product Name</label>
           <input type={'text'} className='form-control mb-2' id='product_name' onChange={handleChange('product_name')} value={product_name} />
 

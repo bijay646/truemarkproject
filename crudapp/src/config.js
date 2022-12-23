@@ -1,0 +1,1 @@
+export const API = "https://product-fhqo.onrender.com/products"

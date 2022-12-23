@@ -4,6 +4,7 @@ import dateFormat from 'dateformat';
 import { getProducts } from '../api/productAPI';
 
 
+
 const Home = () => {
   const [products, setproducts] = useState([]);
   const [search, setSearch] = useState('')
@@ -47,13 +48,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <table className='table text-center table-hover mt-5 rounded-2 shadow' style={{backgroundColor:'hsl(0, 0%, 59%)'}}>
+        <table className='table text-center table-hover mt-5 rounded-2 shadow' style={{ backgroundColor: 'hsl(0, 0%, 59%)' }}>
           <thead >
-            <tr style={{ borderBottom: "3px solid grey" }}>
+            <tr style={{ borderBottom: "3px solid #404040" }}>
               <th>Name</th>
               <th>Category</th>
               <th>Description</th>
-              <th>Created At</th>
+              <th>Created</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
